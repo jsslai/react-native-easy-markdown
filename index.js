@@ -223,9 +223,11 @@ class Markdown extends Component {
     }
 
     renderNode(node, key, index, extras) {
+        if (node == null) {
+            return null;
+        }
 
         const {styles} = this.state;
-
 
         switch(node.type) {
             case 'h1': return this.renderText(node, key, Utils.concatStyles(extras, styles.h1));
